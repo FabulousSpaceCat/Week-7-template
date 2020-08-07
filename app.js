@@ -8,9 +8,9 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 
 var connection = mysql.createConnection({
-  host     : 'l',
+  host     : 'localhost',
   user     : '',
-  database : '',
+  database : 'emails',
   password : ''
 });
 
@@ -26,7 +26,8 @@ app.get("/", function(req, res){
 
 app.post("/register", function(req, res){
     var person = {
-        email: req.body.email
+        user_name: req.body.userName,
+        user_email: req.body.userEmail
     };
     connection.query('INSERT INTO users SET ?', person, function(err, result) {
         if (err) throw err;
@@ -34,6 +35,6 @@ app.post("/register", function(req, res){
     });
 });
 
-app.listen(8080, function(){
-    console.log("Server running on 8080!");
+app.listen(6969, function(){
+    console.log("Server running on 6969!");
 });
