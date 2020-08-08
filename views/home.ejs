@@ -1,16 +1,17 @@
 <head>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Would you like a cookie?</title>
 </head>
-
 <body>
 <div id="form">
-<form>
-    <label for="userName">What should I call you, dearie?</label><br> 
-    <input name="userName" type="text" placeholder="What a nice child."><br> 
-    <label for="userEmail">Let's keep in touch.</label><br> 
-    <input name="userEmail" type="text" placeholder="email@address.com"><br>  
-    <label for="Submit">I definitely won't need your blood for anything.</label><br /> 
-    <button name="Submit" type="submit" value="Submit">That doesn't sound suspicious at all!</button>
-</form>
+    <form method="POST" action="/register">
+        <label for="userName">What should I call you, dearie?</label><br> 
+        <input name="userName" type="text" placeholder="What a nice child."><br> 
+        <label for="userEmail">Let's keep in touch.</label><br> 
+        <input name="userEmail" type="text" placeholder="email@address.com"><br>  
+        <label for="Submit">I definitely won't need your blood for anything. <br><%= count %> other people have already offered theirs!</label><br> 
+        <button name="Submit" type="submit" value="Submit">That doesn't sound suspicious at all!</button>
+    </form>
 </div>
 </body>
