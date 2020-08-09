@@ -13,17 +13,17 @@
 </div>
 <div id="form">
     <form method="POST" action="/register">
-        <div id="1">
+        <div id="1" class="hide">
             <label for="userName">What should I call you, dearie?</label><br> 
             <input name="userName" type="text" placeholder="What a nice child."><br>
             <button onclick="next(this)">It's good to meet you.</button>
         </div>
-        <div id="2">
+        <div id="2" class="hide">
             <label for="userEmail">Let's keep in touch.</label><br> 
             <input name="userEmail" type="text" placeholder="email@address.com"><br>
             <button onclick="next(this)">Oh sure!</button>
         </div>
-        <div id="3">
+        <div id="3" class="hide">
             <label for="Submit">I definitely won't need your blood for anything.<br>
                 <%= count %> other people have already offered theirs!</label><br> 
             <button name="Submit" type="submit" value="Submit">That doesn't sound suspicious at all!</button>
