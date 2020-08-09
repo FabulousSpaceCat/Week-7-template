@@ -1,17 +1,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="witch.js" defer></script>
     <title>Would you like a cookie?</title>
 </head>
 <body>
+<div id="cookie">
+    <h3>We use cookies because they're delicious.</h3>
+    <p>By accepting a cookie, you are consenting to the use of your blood for spellcasting including, but not limited to, ritual summoning, potion crafting, and arcane baking.</p>
+    <button onclick="hide">Mmm cookies</button>
+</div>
 <div id="form">
     <form method="POST" action="/register">
-        <label for="userName">What should I call you, dearie?</label><br> 
-        <input name="userName" type="text" placeholder="What a nice child."><br> 
-        <label for="userEmail">Let's keep in touch.</label><br> 
-        <input name="userEmail" type="text" placeholder="email@address.com"><br>  
-        <label for="Submit">I definitely won't need your blood for anything. <br><%= count %> other people have already offered theirs!</label><br> 
-        <button name="Submit" type="submit" value="Submit">That doesn't sound suspicious at all!</button>
+        <div id="1">
+            <label for="userName">What should I call you, dearie?</label><br> 
+            <input name="userName" type="text" placeholder="What a nice child."><br>
+            <button onclick="next(this)">It's good to meet you.</button>
+        </div>
+        <div id="2">
+            <label for="userEmail">Let's keep in touch.</label><br> 
+            <input name="userEmail" type="text" placeholder="email@address.com"><br>
+            <button onclick="next(this)">Oh sure!</button>
+        </div>
+        <div id="3">
+            <label for="Submit">I definitely won't need your blood for anything.<br>
+                <%= count %> other people have already offered theirs!</label><br> 
+            <button name="Submit" type="submit" value="Submit">That doesn't sound suspicious at all!</button>
+        </div>
     </form>
 </div>
 </body>

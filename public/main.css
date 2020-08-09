@@ -1,0 +1,51 @@
+body {
+    text-align:center;
+}
+
+#cookie {
+    width:100%;
+    position: absolute;
+    bottom:0px;
+}
+
+#1, #2, #3 {
+    display: none;
+}
+
+
+/* Animations */
+
+.fade-in {
+    display:block;
+    animation: fadeIn ease 2s;
+    }
+    
+@keyframes fadeIn {
+    0% {
+        opacity:0;
+        translate:0px;
+    }
+    50% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}
+
+.fade-out {
+    display:block;
+    animation: fadeOut ease 1s;
+    }
+    
+@keyframes fadeOut {
+    0% {
+        opacity:1;
+    }
+    99% {
+        opacity:0;
+    }
+    100% {
+        translate:9999px;
+    }
+}
