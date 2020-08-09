@@ -3,12 +3,14 @@ body {
 }
 
 #cookie {
-    width:100%;
-    position: absolute;
-    bottom:0px;
+    display:block;
+    width:100vw;
+    height:100vw;
 }
 
-#1, #2, #3 {
+/* Did you know that an ID starting with a number is not part of the CSS specification?  You do now. But we can get around that by using an attribute selector  */
+
+[id=1], [id=2], [id=3] {
     display: none;
 }
 
