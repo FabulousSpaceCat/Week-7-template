@@ -1,10 +1,22 @@
-body {
+body, form {
     text-align:center;
+    padding:0;
+    margin:0;
 }
 
-#cookie {
+body {
+    background-image: url("PentagramCookies-10.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#cookie, #form {
+    height:100vh;
     width:100vw;
-    height:100vw;
+}
+
+#cookie div, #form div {
+    background-color: rgba(0,0,0,0.6);
 }
 
 .hide {
