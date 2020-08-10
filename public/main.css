@@ -5,7 +5,7 @@ body, form {
 }
 
 body {
-    background-image: url("PentagramCookies-10.jpg");
+    background-image: url("cookies-and-witch.jpg");
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -13,6 +13,12 @@ body {
 #cookie, #form {
     height:100vh;
     width:100vw;
+}
+
+#cookie {
+    background-image: url("cookies.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 #cookie div, #form div {
