@@ -1,32 +1,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" type="text/css" href="main.css">
     <script src="witch.js" defer></script>
     <title>Would you like a cookie?</title>
 </head>
-<body>
-<div id="cookie">
-    <h3>We use cookies because they're delicious.</h3>
-    <p>By accepting a cookie, you are consenting to the use of your blood for spellcasting including, but not limited to, ritual summoning, potion crafting, and arcane baking.</p>
-    <button onclick="hide()">Mmm cookies</button>
+<body class="w3-black w3-text-red">
+<div id="cookie" class="w3-display-container">
+    <div class="w3-mobile w3-display-middle w3-padding-large">
+        <h3>Would you like a cookie?</h3>
+        <p>We use cookies because they're delicious. By accepting a cookie, you are consenting to the use of your blood for spellcasting including, but not limited to, ritual summoning, potion crafting, and arcane baking.</p>
+        <button onclick="hide()" class="w3-button w3-red w3-border w3-border-red w3-hover-border-red w3-hover-black w3-large w3-round">Mmm cookies.</button>
+    </div>
 </div>
-<div id="form">
+<div id="form" class="hide w3-display-container">
     <form method="POST" action="/register">
-        <div id="1" class="hide">
-            <label for="userName">What should I call you, dearie?</label><br> 
-            <input name="userName" type="text" placeholder="What a nice child."><br>
-            <button onclick="next(this)">It's good to meet you.</button>
+        <div id="1" class="hide w3-mobile w3-display-middle w3-padding-large">
+            <h3><label for="userName">What should I call you, dearie?</label></h3>
+            <p><input name="userName" type="text" placeholder="What a nice child." size="20" maxlength="20" class="w3-border w3-border-red w3-round w3-large w3-padding w3-black"></p>
+            <p><button onclick="next(this)" class="w3-button w3-red w3-border w3-border-red w3-hover-border-red w3-hover-black w3-large w3-round">It's good to meet you.</button></p>
         </div>
-        <div id="2" class="hide">
-            <label for="userEmail">Let's keep in touch.</label><br> 
-            <input name="userEmail" type="text" placeholder="email@address.com"><br>
-            <button onclick="next(this)">Oh sure!</button>
+        <div id="2" class="hide w3-mobile w3-display-middle w3-padding-large">
+            <h3><label for="userEmail">Let's keep in touch.</label></h3>
+            <p><input name="userEmail" type="text" placeholder="email@address.com" size="20" maxlength="50" class="w3-border w3-border-red w3-round w3-large w3-padding w3-black"></p>
+            <p><button onclick="next(this)" class="w3-button w3-red w3-border w3-border-red w3-hover-border-red w3-hover-black w3-large w3-round">Oh sure!</button></p>
         </div>
-        <div id="3" class="hide">
-            <label for="Submit">I definitely won't need your blood for anything.<br>
-                <%= count %> other people have already offered theirs!</label><br> 
-            <button name="Submit" type="submit" value="Submit">That doesn't sound suspicious at all!</button>
+        <div id="3" class="hide w3-mobile w3-display-middle w3-padding-large">
+            <h3><label for="Submit">I probably won't even need your blood.</h3>
+            <p><%= count %> other people have already offered theirs!</label></p>
+            <p><button name="Submit" type="submit" value="Submit" class="w3-button w3-red w3-border w3-border-red w3-hover-border-red w3-hover-black w3-large w3-round">That doesn't sound suspicious at all!</button></p>
         </div>
     </form>
 </div>

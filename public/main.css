@@ -1,10 +1,28 @@
-body {
+body, form {
     text-align:center;
+    padding:0;
+    margin:0;
+}
+
+body {
+    background-image: url("cookies-and-witch.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#cookie, #form {
+    height:100vh;
+    width:100vw;
 }
 
 #cookie {
-    width:100vw;
-    height:100vw;
+    background-image: url("cookies.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+#cookie div, #form div {
+    background-color: rgba(0,0,0,0.6);
 }
 
 .hide {
