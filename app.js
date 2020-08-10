@@ -9,18 +9,28 @@ app.use(express.static(__dirname + "/public"));
 
 var connection = mysql.createConnection({
   host     : 'localhost',
-  user     : 'root',
+  user     : '',
   database : 'users',
-  password : 'root'
+  password : ''
 });
 
 app.get("/", function(req, res){
     // Find count of users in DB
-    var q = "SELECT COUNT(*) AS count FROM emails";
+    let q = "SELECT COUNT(*) AS count FROM emails";
     connection.query(q, function(err, results){
         if(err) throw err;
-        var count = results[0].count; 
+        let count = results[0].count; 
         res.render("home", {count: count});
+    });
+});
+
+app.get("/registered", function(req, res){
+    // Get the username of whoever registered
+    let q = "SELECT user_name AS person FROM emails ORDER BY user_id DESC LIMIT 1";
+    connection.query(q, function(err, results){
+        if(err) throw err;
+        let person = results[0].person; 
+        res.render("registered", {person: person});
     });
 });
 
@@ -34,7 +44,7 @@ app.post("/register", function(req, res){
         if (err) {
             console.log(err);
         }
-        res.redirect("/");
+        res.redirect("/registered");
     });
 });
 
