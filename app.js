@@ -119,18 +119,15 @@ app.post("/register", [
 
 // HTTP Errors
 app.use((req, res) => {
-    res.status(400).send("400: Bad Request");
-    res.status(401).send("401: Unauthorized");
-    res.status(403).send("403: Forbidden");
     res.status(404).send("404: Page not Found");
-    res.status(408).send("408: Request Timeout");
-    res.status(429).send("429: Too Many Requests");
-    res.status(450).send("450: Blocked by Parental Controls");
+});
+app.use((req, res) => {
     res.status(500).send("500: Internal Server Error");
-    res.status(502).send("502: Bad Gateway");
-    res.status(503).send("503: Service Unavailable");
+});
+app.use((req, res) => {
     res.status(504).send("504: Gateway Timeout");
-    res.status(508).send("508: Loop Detected");
+});
+app.use((req, res) => {
     res.status(509).send("509: Bandwidth Limit Exceeded");
 });
 
