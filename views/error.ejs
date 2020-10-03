@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <script src="witch.js" defer></script>
+    <title>That's strange, something went wrong.</title>
+</head>
+<body class="w3-black w3-text-red">
+<div id="error" class="w3-display-container">
+    <div class="w3-mobile w3-display-middle w3-padding-large">
+        <h3>That's strange, something went wrong.</h3>
+        <% locals.errors.forEach((error) => { %>
+            <p><%= error.msg %></p>
+        <% }); %>
+        <p>Maybe try again?</p>
+        <form action="/" method="GET">
+            <input type="hidden" name="name" value="<%= person.user_name %>">
+            <input type="hidden" name="email" value="<%= person.user_email %>"> 
+            <button type="submit" class="w3-button w3-red w3-border w3-border-red w3-hover-border-red w3-hover-black w3-large w3-round">Yeah that was weird.</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

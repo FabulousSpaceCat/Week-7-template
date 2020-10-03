@@ -1,7 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
     <link rel="stylesheet" type="text/css" href="main.css">
     <script src="witch.js" defer></script>
     <title>Would you like a cookie?</title>
@@ -9,22 +11,58 @@
 <body class="w3-black w3-text-red">
 <div id="cookie" class="w3-display-container">
     <div class="w3-mobile w3-display-middle w3-padding-large">
-        <h3>Would you like a cookie?</h3>
-        <p>We use cookies because they're delicious. By accepting a cookie, you are consenting to the use of your blood for spellcasting including, but not limited to, ritual summoning, potion crafting, and arcane baking.</p>
-        <button onclick="hide()" class="w3-button w3-red w3-border w3-border-red w3-hover-border-red w3-hover-black w3-large w3-round">Mmm cookies.</button>
+        <% if (locals.person) { %>
+            <h3>Okay, here we are again.</h3>
+            <p>Let's be more careful this time, shall we?  These contract negotiations are not a joke, and that cookie is really as good as advertised.</p>
+            <button onclick="hide()" class="w3-button w3-red w3-border w3-border-red w3-hover-border-red w3-hover-black w3-large w3-round">Alright.</button>
+        <% } else if (!locals.person) { %>
+            <h3>Would you like a cookie?</h3>
+            <p>We use cookies because they're delicious. By accepting a cookie, you are consenting to the use of your blood for spellcasting including, but not limited to, ritual summoning, potion crafting, and arcane baking.  We also use Javascript, so make sure it's enabled.  And don't worry, we will notify you by raven should your blood contain any magical contaminants.</p>
+            <button onclick="hide()" class="w3-button w3-red w3-border w3-border-red w3-hover-border-red w3-hover-black w3-large w3-round">Mmm cookies.</button>
+        <% } %>
     </div>
 </div>
 <div id="form" class="hide w3-display-container">
     <form method="POST" action="/register">
         <div id="1" class="hide w3-mobile w3-display-middle w3-padding-large">
             <h3><label for="userName">What should I call you, dearie?</label></h3>
-            <p><input name="userName" type="text" placeholder="What a nice child." size="20" maxlength="20" class="w3-border w3-border-red w3-round w3-large w3-padding w3-black"></p>
-            <p><button onclick="next(this)" class="w3-button w3-red w3-border w3-border-red w3-hover-border-red w3-hover-black w3-large w3-round">It's good to meet you.</button></p>
+            <p>
+                <input name="userName" id="userName" type="text" required 
+                placeholder="What a nice child." size="20" minlength="2" maxlength="20" 
+                <% if (locals.person) { %>
+                    value="<%= locals.person.user_name %>"
+                <% }; %>
+                pattern="[^-']([a-zA-ZÀ-ÖØ-öø-ÿ '-](?!.*''|--|  |- |' | '| -.*))+" 
+                class="w3-border w3-border-red w3-round w3-large w3-padding w3-black">
+                <br>
+                <span></span>
+            </p>
+            <p>
+                <button id="userNameBtn" onclick="next(this)" disabled="true"
+                class="w3-button w3-border w3-red w3-border-red w3-hover-border-red w3-hover-black w3-large w3-round">
+                It's good to meet you.
+                </button>
+            </p>
         </div>
         <div id="2" class="hide w3-mobile w3-display-middle w3-padding-large">
             <h3><label for="userEmail">Let's keep in touch.</label></h3>
-            <p><input name="userEmail" type="text" placeholder="email@address.com" size="20" maxlength="50" class="w3-border w3-border-red w3-round w3-large w3-padding w3-black"></p>
-            <p><button onclick="next(this)" class="w3-button w3-red w3-border w3-border-red w3-hover-border-red w3-hover-black w3-large w3-round">Oh sure!</button></p>
+            <p>
+                <input name="userEmail" id="userEmail" type="text" required 
+                placeholder="email@address.com" size="20" minlength="5" maxlength="50" 
+                <% if (locals.person) { %>
+                    value="<%= locals.person.user_email %>"
+                <% }; %>
+                pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                class="w3-border w3-border-red w3-round w3-large w3-padding w3-black">
+                <br>
+                <span></span>
+            </p>
+            <p>
+                <button id="userEmailBtn" onclick="next(this)"  disabled="true"
+                class="w3-button w3-red w3-border w3-border-red w3-hover-border-red w3-hover-black w3-large w3-round">
+                Oh sure!
+                </button>
+            </p>
         </div>
         <div id="3" class="hide w3-mobile w3-display-middle w3-padding-large">
             <h3><label for="Submit">I probably won't even need your blood.</h3>
@@ -34,3 +72,4 @@
     </form>
 </div>
 </body>
+</html>
