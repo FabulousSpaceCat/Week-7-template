@@ -1,4 +1,4 @@
-# Spooky Cookie Witch
+# Cookie Pact
 
 The goal here is to obtain a name and email address.  There's a fun little Spooktober theme going on with it.
 
