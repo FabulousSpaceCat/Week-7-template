@@ -1,21 +1,22 @@
-var express = require('express');
-var mysql = require('mysql');
-var bodyParser  = require("body-parser");
-var app = express();
+let express = require("express");
+let mysql = require("mysql");
+let bodyParser  = require("body-parser");
+let app = express();
 const { check, validationResult } = require("express-validator");
+const cfg = require("./config/config.json");
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static(__dirname + "/public"));
 
-var connection = mysql.createConnection({
-  host     : 'localhost',
-  user     : 'root',
-  database : 'users',
-  password : 'root'
+let connection = mysql.createConnection({
+  host     : cfg.host,
+  user     : cfg.user,
+  database : cfg.database,
+  password : cfg.password
 });
 
-app.get("/", function(req, res){
+app.get("/", (req, res) => {
     // Insert info if we've returned by way of error
     let person = "";
     if (req.query.name != "" && req.query.name != undefined) {
@@ -26,7 +27,7 @@ app.get("/", function(req, res){
     }
     // Find count of users in DB
     let q = "SELECT COUNT(*) AS count FROM emails";
-    connection.query(q, function(err, results){
+    connection.query(q, (err, results) => {
         if(err) {
             console.log(err)
         };
@@ -35,7 +36,7 @@ app.get("/", function(req, res){
     });
 });
 
-app.get("/registered", function(req, res){
+app.get("/registered", (req, res) => {
     // Get the username of whoever registered last
     let q = "SELECT ?? AS ? FROM emails ORDER BY ?? DESC LIMIT 1";
     connection.query(q, ["user_name", "person", "user_id"], function(err, results){
@@ -47,7 +48,7 @@ app.get("/registered", function(req, res){
     });
 });
 
-app.get("/naughty", function(req, res){
+app.get("/naughty", (req, res) => {
     // Get the name of the greedy cookie thief
     let person = req.query.name;
     res.render("naughty", {person});
@@ -131,6 +132,6 @@ app.use((req, res) => {
     res.status(509).send("509: Bandwidth Limit Exceeded");
 });
 
-app.listen(6969, function(){
+app.listen(cfg.port, () => {
     console.log("Server running on 6969!");
 });

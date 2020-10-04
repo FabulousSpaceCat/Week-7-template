@@ -2,6 +2,9 @@
 *.sai
 *.psd
 
+#config
+/config
+
 # Logs
 logs
 *.log
